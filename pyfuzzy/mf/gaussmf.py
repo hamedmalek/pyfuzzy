@@ -1,6 +1,5 @@
 import numpy
 
-
 def gaussmf (x, params):
 
     if not isinstance(params, list):
