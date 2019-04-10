@@ -7,31 +7,47 @@ def pimf(x, params):
     if not ((isinstance(params[0], float) and isinstance(params[1], float))
             and isinstance(params[2], float) and isinstance(params[3], float)):
         raise TypeError("Parameters should be in float.")
-    if not(all(params[i] <= params[i+1] for i in range(len(params)-1))):
-        raise TypeError("list is not sorted!")
 
+    # This membership function is the product of SMF and ZMF.
+    # PIMF(X, PARAMS) = SMF(X, PARAMS[:2]) * ZMF(X, PARAMS[2:])
+
+    return smf(x, params[:2]) * zmf(x, params[2:])
+
+
+def zmf(x, params):
     a = params[0]
     b = params[1]
-    c = params[2]
-    d = params[3]
+    if a >= b:
+        if x <= (a + b)/2:
+            return 1
+        else:
+            return 0
+
+    if x <= a:
+        return 1
+    elif a <= x <= (a + b)/2:
+        return 1 - 2 * ((x - a)/(b - a))**2
+    elif (a + b)/2 <= x <= b:
+        return 2 * ((x - b)/(b - a))**2
+    elif x >= b:
+        return 0
+
+
+def smf(x, params):
+    a = params[0]
+    b = params[1]
+
+    if a >= b:
+        if x >= (a + b)/2:
+            return 1
+        else:
+            return 0
 
     if x <= a:
         return 0
-
-    elif a <= x <= (a + b) / 2:
-        return 2 * ((x - a)/(b - a)) ** 2
-
-    elif (a + b) / 2 <= x <= b:
-        return 1 - (2 * ((x - b)/(b - a)) ** 2)
-
-    elif b <= x <= c:
+    elif a <= x <= (a + b)/2:
+        return 2 * ((x - a)/(b - a))**2
+    elif (a + b)/2 <= x <= b:
+        return 1 - 2 * ((x - b)/(b - a))**2
+    elif x >= b:
         return 1
-
-    elif c <= x <= (c + d) / 2:
-        return 1 - (2 * ((x - c) / (d - c)) ** 2)
-
-    elif (c + d) / 2 <= x <= d:
-        return 2 * ((x - d) / (d - c)) ** 2
-
-    elif x >= d:
-        return 0
