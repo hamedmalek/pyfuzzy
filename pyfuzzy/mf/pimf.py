@@ -7,6 +7,8 @@ def pimf(x, params):
     if not ((isinstance(params[0], float) and isinstance(params[1], float))
             and isinstance(params[2], float) and isinstance(params[3], float)):
         raise TypeError("Parameters should be in float.")
+    if not(all(params[i] <= params[i+1] for i in range(len(params)-1))):
+        raise TypeError("list is not sorted!")
 
     a = params[0]
     b = params[1]
