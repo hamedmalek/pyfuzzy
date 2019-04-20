@@ -1,2 +1,50 @@
 def intersection_product(U, A, B):
-    return {}
+    if not isinstance(U, dict):
+        raise TypeError ("U should be a dictionary.")
+    if not isinstance(A, dict):
+        raise TypeError ("A should be a dictionary.")
+    if not isinstance(B, dict):
+        raise TypeError ("B should be a dictionary.")
+    if  set(A.keys()).issubset(set(U.keys())) == False:
+        raise TypeError (" A should be a subset of U.")
+    if  set(B.keys()).issubset(set(U.keys())) == False:
+        raise TypeError (" B should be a subset of U.")
+
+    for key in U.keys():
+        try:
+           val = float(A.get(key, 0))
+           if not(0 <= val <=1) :
+               raise TypeError ("mfA("+str(key)+"):=> '" + str(val) + "' is not between 0 and 1 ")
+        except ValueError :
+           raise TypeError ( A.get(key, 0) + " should be float.")
+
+    for key in U.keys():
+        try:
+           val = float(B.get(key, 0))
+           if not(0 <= val <=1) :
+               raise TypeError ("mfB("+str(key)+"):=> '" + str(val) + "' is not between 0 and 1 ")
+        except ValueError:
+           raise TypeError ( B.get(key, 0) + " should be float.")
+
+    previousKeyType=""
+    for key,value in U.items():
+        if previousKeyType=="" :
+            previousKeyType=type(key)
+        if type(key)!= previousKeyType :
+            raise TypeError ("type ("+str(key)+") is " + str(type(key)) + " not " + str(previousKeyType) )
+        try:
+           val = float(value)
+           if val !=1 :
+               raise TypeError ("mfU("+str(key)+"):=> '" + str(val) + "' is not egual 1.0 ")
+        except ValueError:
+           raise TypeError ("mfU("+str(key)+"):=> '" + value + "' is not a number!")
+
+
+
+    Result = dict()
+    for key in U.keys():
+        mfA = A.get(key, 0)
+        mfB = B.get(key, 0)
+        Result[key]= mfA*mfB
+
+    return Result
