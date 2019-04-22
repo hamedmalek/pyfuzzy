@@ -28,7 +28,7 @@ def intersection_min(U, A, B):
 
     previousKeyType=""
     for key,value in U.items():
-        print(key)
+        # print(key)
         if previousKeyType=="" :
             previousKeyType=type(key)
         if type(key)!= previousKeyType :
