@@ -1,4 +1,3 @@
-
 def cartesian(U1, U2, A, B, func_name="min"):
     # checking input type for error
     if not isinstance(U1, list):
@@ -43,9 +42,20 @@ def cartesian(U1, U2, A, B, func_name="min"):
         except ValueError:
             raise TypeError(B.get(key, 0) + " should be float.")
 
+    result = dict()
     if func_name == "product":
         for memberA in U1:
-            mfA = A.get(memberA, 0)
+            mfA = A.get(memberA, 0.)
             for memberB in U2:
-                mfB = B.get(memberB, 0)
-                
+                mfB = B.get(memberB, 0.)
+                key = (memberA, memberB)    # tuple of members name
+                result[key] = mfA*mfB
+    else:
+        for memberA in U1:
+            mfA = A.get(memberA, 0.)
+            for memberB in U2:
+                mfB = B.get(memberB, 0.)
+                key = (memberA, memberB)    # tuple of members name
+                result[key] = min(mfA, mfB)
+
+    return result
