@@ -9,6 +9,7 @@ from pyfuzzy.mf import trapmf
 from pyfuzzy.mf import trimf
 from pyfuzzy.mf import zmf
 
+
 class mf2dictTestCase(unittest.TestCase):
 
     def test_mf2dict_1(self):
