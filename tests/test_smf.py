@@ -1,9 +1,10 @@
 import unittest
 from pyfuzzy.mf import smf
 
+
 class smfTestCase(unittest.TestCase):
     def test_solinebasedcurve1_membership_function(self):
-        self.assertEqual(smf.smf(0, [1.0, 0.0]), 0.0)
+        self.assertEqual(smf.smf(0, [1.0, 0.0]), 0)
         
     def test_solinebasedcurve2_membership_function(self):   
         self.assertRaises( TypeError, lambda:smf.smf(1, [1.0, 0.0, 2.0]))
@@ -18,26 +19,26 @@ class smfTestCase(unittest.TestCase):
         self.assertRaises( TypeError, lambda:smf.smf(0, [1.0, ] )) 
      
     def test_solinebasedcurve6_membership_function(self):
-        self.assertRaises( TypeError, lambda:smf.smf(0, [1, 0.0]))
+        self.assertRaises( TypeError, lambda:smf.smf(0, [  0.0]))
         
     def test_solinebasedcurve7_membership_function(self):  
-        self.assertRaises( TypeError, lambda:smf.smf(0, [1.0, 0]))
+        self.assertRaises( TypeError, lambda:smf.smf( 1, -1.1))
         
          ####
     def test_solinebasedcurve8_membership_function(self):
-        self.assertEqual(smf.smf(0, [1.0, -1.0]), 1.0) 
+        self.assertEqual(smf.smf(0, [1.0, -1.0]), 0.0) 
         
     def test_solinebasedcurve9_membership_function(self):
         self.assertAlmostEqual(smf.smf(1, [-1.0, -0.5]), 1.0)        
         
     def test_solinebasedcurve10_membership_function(self):
-        self.assertAlmostEqual(smf.smf(1, [1.0, 1.0]), 1.0)
+        self.assertAlmostEqual(smf.smf(1, [1.0, 1.0]), 0.0)
         
     def test_solinebasedcurve11_membership_function(self):
-        self.assertAlmostEqual(smf.smf(1, [1.0, 0.0]), 1.0)
+        self.assertAlmostEqual(smf.smf(1, [1.0, 0.0]), 0.0)
         
     def test_solinebasedcurve12_membership_function(self):
-        self.assertAlmostEqual(smf.smf(0, [0.0, 0.0]), 1.0)
+        self.assertAlmostEqual(smf.smf(0, [0.0, 0.0]), 0.0)
         
     def test_solinebasedcurve13_membership_function(self):
         self.assertAlmostEqual(smf.smf(-1, [1.0, 0.5]), 0.0)
