@@ -2,7 +2,6 @@ import unittest
 from pyfuzzy.mf import smf
 
 
-
 class smfTestCase(unittest.TestCase):
     def test_solinebasedcurve1_membership_function(self):
         self.assertEqual(smf.smf(0, [1.0, 0.0]), 0)
