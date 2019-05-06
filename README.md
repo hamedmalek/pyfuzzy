@@ -1,6 +1,6 @@
 # A Library for Fuzzy Logic and Fuzzy Systems
 
-### Functions :
+### Membership Functions :
   
   - gaussmf:  Gaussian membership function
   - gbellmf:  Generalized bell-shaped membership function
@@ -10,6 +10,20 @@
   - trapmf:   Trapezoidal membership function
   - trimf:    Triangular membership function
   - zmf:      Z-shaped membership function
+
+### Operators :
+
+  - cartesian
+  - complement
+  - intersection_min
+  - intersection_product
+  - union_algebra
+  - union_max
+
+### Defuzzification Functions :
+
+  - Centroid
+  - 
   
 ### References :
 
