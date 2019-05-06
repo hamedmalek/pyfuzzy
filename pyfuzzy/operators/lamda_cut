@@ -2,11 +2,13 @@ def lamda_cut(U,A,S):
     if not isinstance(U, dict):
         raise TypeError ("Fuzzy set should be a dictionary and should have all key values.")
     flag=0
+    Tvalue=[]
     for i in range(len(U)):
         if not (0 <= U[i] <= 1):
+            Tvalue.append(i)
             flag=1
     if flag==1:
-        raise TypeError("values should be between 0 and 1.")
+        raise TypeError("value of keys in " + str(Tvalue) + " is not between 0 and 1 ")
     if not isinstance(A, float):
         raise TypeError ("lamda_cut should be a float.")
     if not (0 <= A <= 1):
