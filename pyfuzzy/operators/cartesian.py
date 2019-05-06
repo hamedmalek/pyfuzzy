@@ -62,26 +62,3 @@ def cartesian(U1, U2, A, B, func_name="min"):
                 result[key] = min(mfA, mfB)
 
     return result
-
-
-
-# u = list(range(10))
-# v = list(range(10))
-# a = {1: 0, 2: 0.2, 3: 0.4, 4: 0.6, 5: 0.8, 6: 1}
-# b = {1:1, 2:0 , 3:0.4 , 9:0.6}
-#
-#
-#
-# # # A = {1: 0, 2: 0.2, 3: 0.4, 4: 0.6, 5: 0.8, 6: 1}
-# # # B = {1: 0, 2: 0.2, 3: 0.4, 4: 0.6, 5: 0.8, 6: 1}
-# # # print(cartesian([1, 2, 3, 4, 5, 6], [1, 2, 3, 4, 5, 6], A, B, "product"))
-# # print(list(string.ascii_lowercase))
-#
-# # u = list(string.ascii_lowercase)
-# # v = list(string.ascii_lowercase)
-# # A = {'a': 0.1, 'b': 0.02}
-# # B = {'a': 0.2, 'b': 0.5, 'c': 0.7}
-# #
-# # print(u)
-# print(cartesian(u, v, a, b, "product"))
-#
