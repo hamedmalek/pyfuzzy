@@ -130,3 +130,4 @@ class UnionMaxTestCase(unittest.TestCase):
                (6, 4): 0.6, (6, 5): 0.8, (6, 6): 1}
 
         self.assertEqual(cartesian.cartesian(u, v, a, b, "product"), out)
+
