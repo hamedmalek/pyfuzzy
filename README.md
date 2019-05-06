@@ -10,6 +10,10 @@
   - trapmf:   Trapezoidal membership function
   - trimf:    Triangular membership function
   - zmf:      Z-shaped membership function
+
+### Operators :
+  
+
   
 ### References :
 
