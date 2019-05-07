@@ -1,5 +1,5 @@
 def defuzz_som(m):
-    # validatig data:
+    # validating data:
     if not isinstance(m, dict):
         raise TypeError("input argument should be a dictionary.")
 
