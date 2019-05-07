@@ -1,6 +1,6 @@
 import unittest
 
-from pyfuzzy.operators import Defuzz_som
+from pyfuzzy.operators import defuzz_som
 
 
 class DefuzzLomTestCase(unittest.TestCase):
