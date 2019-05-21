@@ -1,4 +1,4 @@
-import math
+
 def slightly(A):
 
 
