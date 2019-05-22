@@ -1,0 +1,37 @@
+num_array1 = list()
+num = input("Enter how many elements you want:")
+print ('Enter numbers in array: ')
+for i in range(int(num)):
+    n =input("num1 :")
+    a = input("num 2:")
+    b = input("num 3:")
+    num_array1.append([float(n),float(a),float(b)])
+
+
+
+
+
+num_array2 = list()
+num = input("Enter how many elements you want:")
+print ('Enter numbers in array: ')
+for i in range(int(num)):
+    n =input("num1 :")
+    a = input("num 2:")
+    b = input("num 3:")
+    num_array2.append([float(n),float(a),float(b)])
+
+
+
+
+
+def maxProduct(x, y):
+    z = []
+    for x1 in x:
+        for y1 in y.T:
+            z.append(max(np.multiply(x1, y1)))
+    return np.array(z).reshape((x.shape[0], y.shape[1]))
+
+
+
+
+print ("R1oR2 => Max-Product :\n" + str(maxProduct(num_array1, num_array2)) + "\n\n")
