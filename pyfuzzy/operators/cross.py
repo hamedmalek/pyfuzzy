@@ -1,3 +1,4 @@
+import warnings
 
 def cross(mf1,mf2):
 
@@ -21,6 +22,9 @@ def cross(mf1,mf2):
 
         if value > 1 or value < 0:
             raise ValueError("value of first input argument should be between 0 or 1.")
+
+    if len(mf1) != len(mf2):
+        warnings.warn("input fuzzy sets dont have same size , we takes min size.")
 
     for key , value in mf2.items():
         if not isinstance(key, int):
