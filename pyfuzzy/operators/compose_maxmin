@@ -1,0 +1,44 @@
+def compose_maxmin(S,R):
+
+    """
+    Inputs
+    -------
+    S : 2d array, (M, N)
+        Fuzzy relation matrix #1.
+    R : 2d array, (N, P)
+        Fuzzy relation matrix #2.
+
+    Returns
+    -------
+    res : 2d array, (M, P)
+        maxmin composition matrix.
+
+    """
+    if not isinstance(R[0], list):
+        raise TypeError("R should be a matrix.")
+
+    for i in range(len(R) - 1):
+        if (len(R[i] != len(R[i + 1]))):
+            raise TypeError("R should be a matrix.")
+
+    if not isinstance(S[0], list):
+        raise TypeError("S should be a matrix.")
+
+    for j in range(len(S) - 1):
+        if (len(S[i] != len(S[i + 1]))):
+            raise TypeError("S should be a matrix.")
+
+    if S.ndim < 2:
+        S = np.atleast_2d(s)
+    if R.ndim < 2:
+        R = np.atleast_2d(r).T
+    m = S.shape[0]
+    p = R.shape[1]
+    res = np.zeros((m, p))
+
+    for pp in range(p):
+        for mm in range(m):
+            res[mm, pp] = (np.fmin(S[mm, :], R[:, pp].T)).max()
+
+
+    return res
