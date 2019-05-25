@@ -21,7 +21,7 @@ def defuzz_lom(mf1):
     largest_item , largest_value = sorted(mf1.items())[0]
 
     for item , value in sorted(mf1.items()):
-        if value > largest_value:
+        if value >= largest_value:
             largest_value = value
             largest_item = item
 
