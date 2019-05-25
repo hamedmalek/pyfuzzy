@@ -43,12 +43,12 @@ class DefuzzLomTestCase(unittest.TestCase):
     # Test a random fuzzy set 2
     def test_defuzz_lom_8(self):
         test = {0: 0, 1: 0.3, 2: 0.3, 3: 0.3, 4: 0.5, 5: 0.5, 6: 1, 7: 1, 8: 0}
-        self.assertEqual(Defuzz_lom.defuzz_lom(test), 6)
+        self.assertEqual(Defuzz_lom.defuzz_lom(test), 7)
 
     # Test a random fuzzy set 3
     def test_defuzz_lom_9(self):
         test = {0: 0, 1: 0.8, 2: 0.8, 3: 0.8, 4: 0.8, 5: 0.5, 6: 0.5, 7: 0.2, 8: 0.2, 9: 0.2, 10: 0, 11: 0}
-        self.assertEqual(Defuzz_lom.defuzz_lom(test), 1)
+        self.assertEqual(Defuzz_lom.defuzz_lom(test), 4)
 
 
 # Run all unittests
