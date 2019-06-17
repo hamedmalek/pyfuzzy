@@ -1,13 +1,10 @@
+import numpy as np
+
 def image_maxmin( R, A):
  if not isinstance(A, dict):
     raise TypeError("A should be a dictionary.")
- if not isinstance(R[0],list):
-    raise TypeError("R should be a matrix.")
-
-
- for i in range(len(R) - 1):
-    if (len(R[i] != len(R[i + 1]))):
-            raise TypeError("R should be a matrix.")
+ if not isinstance(R,dict):
+    raise TypeError("R should be a dictionary.")
 
 
  for key in A.keys():
@@ -26,9 +23,21 @@ def image_maxmin( R, A):
         except ValueError:
             raise TypeError("mfA(" + str(key) + "):=> '" + value + "' is not a float!")
 
+
+
+ row = int(len(A))
+ col = int(len(R)/len(A))
+
+ Mtx_R = list(R.values())
+ Mrx_R = np.asarray(Mrx_R)
+ Mrx_R = Mrx_R.reshape(row, col)
+
  resulte = dict()
- for j in range(len(R[0])):
-   for i in range(len(R)):
-      resulte[j] = max(min(A.get(i, 0), R[i][j]))
+ temp = dict()
+ for j in range(int(len(R)/len(A))):
+    for i in range(int(len(A))):
+       temp[i+1]=min(A.get(i+1,0), Mrx_R[i][j])
+       resulte[j+1] = max(temp.values())
+
 
  return resulte
