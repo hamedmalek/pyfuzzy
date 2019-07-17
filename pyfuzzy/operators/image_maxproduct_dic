@@ -1,0 +1,55 @@
+import numpy
+
+def image_maxproduct( R, B):
+
+ if not isinstance(R, dict):
+    raise TypeError("Relation should be a dictionary.")
+ if not isinstance(B, dict):
+    raise TypeError("inputs should be dictionary.")
+ 
+ #Checking for input
+ flag = 0
+ Tvalue = []
+ for key, value in B.items():
+
+     if not isinstance(value, float):
+         raise TypeError("value of dictionery should be a float.")
+
+     if value > 1 or value < 0:
+         Tvalue.append(key)
+         flag = 1
+ if flag == 1:
+     raise TypeError("value of keys in " + str(Tvalue) + " is not between 0 and 1 ")
+     
+ #Checking for relation
+ flag = 0
+ Tvalue = []
+ for key, value in R.items():
+
+     if not isinstance(value, float):
+         raise TypeError("value of dictionery should be a float.")
+
+     if value > 1 or value < 0:
+         Tvalue.append(key)
+         flag = 1
+ if flag == 1:
+     raise TypeError("value of keys in " + str(Tvalue) + " is not between 0 and 1 ")
+
+ # computing
+
+ row = int(len(B))     #number of rows in matrix R
+ col = int(len(R)/len(B))    #number of colums in matrix R
+
+ Mrx_R = list(R.values())
+ Mrx_R = numpy.asarray(Mrx_R)
+ Mrx_R = Mrx_R.reshape(row, col)
+
+ resulte = dict()
+ temp = dict()
+ for j in range(int(len(R) / len(B))):
+     for i in range(int(len(B))):
+         temp[i + 1] = (B.get(i + 1, 0)* Mrx_R[i][j])
+         resulte[j + 1] = max(temp.values())
+
+
+ return resulte
