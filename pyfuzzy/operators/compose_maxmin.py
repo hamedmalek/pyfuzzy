@@ -31,7 +31,7 @@ def compose_maxmin(R, S):
         Yx.append(key[1])
         if not isinstance(value, float):
             raise TypeError("value of dictionary R in "+str(key)+" should be a float.")
-        elif not 1.0 < value < 0.0:
+        elif not 0.0 <= value <= 1.0:
             raise TypeError("value of membership of R in "+str(key)+" is not between 0 and 1 ")
 
     for key, value in S.items():
@@ -39,7 +39,7 @@ def compose_maxmin(R, S):
         Z.append(key[1])
         if not isinstance(value, float):
             raise TypeError("value of dictionary S in "+str(key)+" should be a float.")
-        elif not 1.0 < value < 0.0:
+        elif not 0.0 <= value <= 1.0:
             raise TypeError("value of membership of S in " + str(key) + " is not between 0 and 1 ")
 
     # check Yx equal Yz
